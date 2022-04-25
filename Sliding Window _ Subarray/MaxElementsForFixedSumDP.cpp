@@ -1,8 +1,9 @@
 Tc=o(n)
 //Sliding window is only  for positive array   this works for both pos and neg  longest subarray with 0 sum
 
-    int maxLen(vector<int>&arr, int n)
-    {   int k=0;
+    int maxLen(vector<int>&arr, int k)//k=sum
+    {   
+            int n=arr.size();
             unordered_map<int, int> um;
     int sum = 0, maxLen = 0;
  
@@ -34,6 +35,32 @@ Tc=o(n)
     // required maximum length
     return maxLen;
     }
+
+//Longest subarray without repeting characters
+int largest_subarray(int a[], int n)
+{
+    // Stores index of array elements
+    unordered_map<int, int> index;
+    int ans = 0;
+    for (int i = 0, j = 0; i < n; i++) {
+  
+        // Update j based on previous
+        // occurrence of a[i]
+        j = max(index[a[i]], j);
+  
+        // Update ans to store maximum
+        // length of subarray
+        ans = max(ans, i - j + 1);
+  
+        // Store the index of current
+        // occurrence of a[i]
+        index[a[i]] = i + 1;
+    }
+  
+    // Return final ans
+    return ans;
+}
+
 
 
 //Longest substring without repeting characters
