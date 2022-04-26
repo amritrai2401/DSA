@@ -1,5 +1,5 @@
 Tc=o(n)
-//Sliding window is only  for positive array   this works for both pos and neg  longest subarray with 0 sum
+
 
     int maxLen(vector<int>&arr, int k)//k=sum
     {   
@@ -36,3 +36,4 @@ Tc=o(n)
     return maxLen;
     }
 
+//Works for both pos and neg array
