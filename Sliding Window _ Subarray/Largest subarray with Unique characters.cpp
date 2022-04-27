@@ -1,18 +1,3 @@
-int largest_subarray(int a[], int n){
-    map<int, int> index;
-    int ans = 0;
-    for (int i = 0, j = 0; i < n; i++) {
-        j = max(index[a[i]], j);
-        
-        ans = max(ans, i - j + 1);
-
-        index[a[i]] = i + 1;
-    }
-    return ans;
-}
-
-
-
 //Longest substring without repeting characters
 int lengthOfLongestSubstring(string s) {
         int i=0,j=0;
@@ -30,3 +15,23 @@ int lengthOfLongestSubstring(string s) {
         }
         return mx;    //For longest substring with k unique char: if(mx>=k)return mx; else return -1;
 }
+
+
+
+
+total subarrays with k integers
+    int count(vector<int>& nums, int k){
+        unordered_map<int,int>m;
+        int i=0, c=0;
+        for(int j=0;j<nums.size();j++){
+            m[nums[j]]++;
+            while(m.size()>k){
+                m[nums[i]]--;
+                if(m[nums[i]]==0)
+                    m.erase(nums[i]);
+                i++;
+            }
+            c+=(j-i+1);
+        }
+        return c;
+    }
