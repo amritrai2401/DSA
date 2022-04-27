@@ -19,6 +19,37 @@ int lengthOfLongestSubstring(string s) {
 
 
 
+LArgest subarray with k sum
+
+int lenOfLongSubarr(int A[], int N, int K)
+{
+ 
+    int i = 0, j = 0, sum = 0;
+    int maxLen = INT_MIN;
+   
+    while (j < N) {
+        sum += A[j];
+        if (sum < K) {
+            j++;
+        }
+        else if (sum == K) {
+            maxLen = max(maxLen, j-i+1);
+            j++;
+        }
+        else if (sum > K) {
+            while (sum > K) {
+                sum -= A[i];
+                 i++;
+            }
+            j++;
+        }
+    }
+    return maxLen;
+}
+
+
+
+
 total subarrays with k integers
     int count(vector<int>& nums, int k){
         unordered_map<int,int>m;
