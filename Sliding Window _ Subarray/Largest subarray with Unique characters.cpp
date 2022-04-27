@@ -11,12 +11,12 @@ int lengthOfLongestSubstring(string s) {
                     i++;
             }
             if(m.size()==j-i+1)mx=max(mx,j+1-i);                                 //For long substring with k unique char: if(m.size()==k)
+                                                                                 //totalSubarrays with k unique char += (j-i+1);
             j++;
         }
         return mx;    //For longest substring with k unique char: if(mx>=k)return mx; else return -1;
+        //return totalsubarrays with k unique char;
 }
-
-
 
 
 LArgest subarray with k sum
@@ -46,23 +46,3 @@ int lenOfLongSubarr(int A[], int N, int K)
     }
     return maxLen;
 }
-
-
-
-
-total subarrays with k integers
-    int count(vector<int>& nums, int k){
-        unordered_map<int,int>m;
-        int i=0, c=0;
-        for(int j=0;j<nums.size();j++){
-            m[nums[j]]++;
-            while(m.size()>k){
-                m[nums[i]]--;
-                if(m[nums[i]]==0)
-                    m.erase(nums[i]);
-                i++;
-            }
-            c+=(j-i+1);
-        }
-        return c;
-    }
