@@ -1,4 +1,3 @@
-//Longest substring without repeting characters
 int lengthOfLongestSubstring(string s) {
         int i=0,j=0;
         map<char,int>m;
@@ -16,33 +15,4 @@ int lengthOfLongestSubstring(string s) {
         }
         return mx;    //For longest substring with k unique char: if(mx>=k)return mx; else return -1;
         //return totalsubarrays with k unique char;
-}
-
-
-LArgest subarray with k sum
-
-int lenOfLongSubarr(int A[], int N, int K)
-{
- 
-    int i = 0, j = 0, sum = 0;
-    int maxLen = INT_MIN;
-   
-    while (j < N) {
-        sum += A[j];
-        if (sum < K) {
-            j++;
-        }
-        else if (sum == K) {
-            maxLen = max(maxLen, j-i+1);
-            j++;
-        }
-        else if (sum > K) {
-            while (sum > K) {
-                sum -= A[i];
-                 i++;
-            }
-            j++;
-        }
-    }
-    return maxLen;
 }
