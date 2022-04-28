@@ -1,3 +1,4 @@
+TC=o(nlogn)
 int lengthOfLongestSubstring(string s) {
         int i=0,j=0;
         map<char,int>m;
