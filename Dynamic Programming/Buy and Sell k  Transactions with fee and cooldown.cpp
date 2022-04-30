@@ -1,7 +1,7 @@
 int maxProfit(int transactions, vector<int>& prices, int fee) {
         
-        int buy[transactions][prices.size()]={{0}};                     // For 1 transaction : buy[1][n]=buy[n]
-        int sell[transactions][prices.size()]={{0}};                    // Sahi hai
+        vector<vector<int>>buy (transactions,vector<int>(prices.size(),0);// For 1 transaction : buy[1][n]=buy[n]
+        vector<vector<int>>sell (transactions,vector<int>(prices.size(),0);                 
         for(int i=0; i<transactions;i++) buy[i][0] = -prices[0];      
         
         for(int i=1; i<prices.size(); i++) {                           
