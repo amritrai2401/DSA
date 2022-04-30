@@ -7,7 +7,7 @@ int maxProfit(vector<int>& prices, int cooldown,int fee) {
             buy[i]=max(buy[i-1],i-cooldown>0? sell[i-cooldown-1]-prices[i] : 0-prices[i]); // OR buy[i] = max(buy[i-1], sell[i-1] - prices[i]);   
             sell[i]=max(sell[i-1],buy[i-1]+prices[i]-fee);                                // OR sell[i+cooldown] = max(sell[i+cooldown-1], buy[i-1] + prices[i]-fee);
         }
-        return sell[n + cooldown - 1];   // OR return sell[n-1];
+        return sell[n-1];   // OR return sell[n+cooldown-1];
 }
 
 // https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iv/discuss/1167126/C%2B%2B-Solution-to-all-the-Stock-Problems-using-Dynamic-Programming
