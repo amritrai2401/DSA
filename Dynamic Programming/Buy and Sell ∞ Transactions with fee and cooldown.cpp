@@ -5,7 +5,7 @@ int maxProfit(vector<int>& prices, int cooldown,int fee) {
         buy[0] = -prices[0];
         for (int i = 1; i < n; i++) {
             buy[i]=max(buy[i-1],i-cooldown>0? sell[i-cooldown-1]-prices[i] : 0-prices[i]); // OR buy[i] = max(buy[i-1], sell[i-1] - prices[i]);   
-            sell[i]=max(sell[i-1],buy[i-1]+prices[i]-fees);                                // OR sell[i+cooldown] = max(sell[i+cooldown-1], buy[i-1] + prices[i]-fee);
+            sell[i]=max(sell[i-1],buy[i-1]+prices[i]-fee);                                // OR sell[i+cooldown] = max(sell[i+cooldown-1], buy[i-1] + prices[i]-fee);
         }
         return sell[n + cooldown - 1];   // OR return sell[n-1];
 }
