@@ -1,4 +1,5 @@
 //PATH QUE CAN NEVER ASK PERMUTATION. ex; 1->2->3 you cant permute it like first go 3 then 1 then 2 (3->1->1)wrong
+
 int solve(vector<vector<int>>& grid) {
         int m = grid.size();
         int n = grid[0].size(); 
