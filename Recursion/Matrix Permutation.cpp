@@ -1,4 +1,5 @@
-// ALL QUESTIONS ARE BOUNED
+// ALL QUESTIONS ARE BOUNED unlike unbounded subset
+
 void queensPermutations(int qpsf, int tq, int[][] chess){
         if(qpsf == tq){
             for(int row = 0; row < chess.length; row++){
