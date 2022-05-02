@@ -4,8 +4,7 @@ int DirX[] = { 2, 1, -1, -2, -2, -1, 1, 2 };
 int DirY[] = { 1, 2, 2, 1, -1, -2, -2, -1 };
  
 bool isSafe(int i, int j, int n,vector<vector<int> >& Board){
-    return (i >= 0 and j >= 0 and i < n and j < n
-            and Board[i][j] == 0);
+    return (i>=0 && j>=0 && i<n && j<n && Board[i][j] == 0);
 }
  
 
@@ -14,10 +13,10 @@ bool isPossible = false;
 void knightTour(vector<vector<int> >& ChessBoard, int N, int x, int y, int visitedOrMoveno){
     ChessBoard[x][y] = visitedOrMoveno;
  
-    if (visited == N * N) {
+    if(visited == N*N){
         isPossible = true;
-        for (int i = 0; i < N; i++) {
-            for (int j = 0; j < N; j++) {
+        for (int i=0; i<N; i++) {
+            for (int j=0; j<N; j++) {
                 cout << ChessBoard[i][j] << " ";
             }
             cout << endl;
