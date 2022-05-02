@@ -1,25 +1,90 @@
 //Knight Tour ::
 
-int xMove[8] = { 2, 1, -1, -2, -2, -1, 1, 2 };
-int yMove[8] = { 1, 2, 2, 1, -1, -2, -2, -1 };
-
-bool isValid(int x, int y, int sol[N][N]) {
-   return ( x >= 0 && x < N && y >= 0 && y < N && sol[x][y] == -1);
+int DirX[] = { 2, 1, -1, -2, -2, -1, 1, 2 };
+int DirY[] = { 1, 2, 2, 1, -1, -2, -2, -1 };
+ 
+// Function to find if (i, j) is a valid
+// cell for the knight to move and it
+// exists within the chessboard
+bool isSafe(int i, int j, int n,
+            vector<vector<int> >& Board)
+{
+    return (i >= 0 and j >= 0 and i < n and j < n
+            and Board[i][j] == 0);
+}
+ 
+// Stores whether there exist any valid path
+bool isPossible = false;
+ 
+// Recursive function to iterate through all
+// the paths that the knight can follow
+void knightTour(vector<vector<int> >& ChessBoard, int N,
+                int x, int y, int visited = 1)
+{
+    // Mark the current square of the chessboard
+    ChessBoard[x][y] = visited;
+ 
+    // If the number of visited squares are equal
+    // to the total number of squares
+    if (visited == N * N) {
+        isPossible = true;
+ 
+        // Print the current state of ChessBoard
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < N; j++) {
+                cout << ChessBoard[i][j] << " ";
+            }
+            cout << endl;
+        }
+        cout << endl;
+ 
+        // Backtrack to the previous move
+        ChessBoard[x][y] = 0;
+        return;
+    }
+ 
+    // Iterate through all the eight possible moves
+    // for a knight
+    for (int i = 0; i < 8; i++) {
+ 
+        // Stores the new position of the knight
+        // after a move
+        int newX = x + DirX[i];
+        int newY = y + DirY[i];
+ 
+        // If the new position is a valid position
+        // recursively call for the next move
+        if (isSafe(newX, newY, N, ChessBoard)
+            && !ChessBoard[newX][newY]) {
+            knightTour(ChessBoard, N, newX, newY,
+                       visited + 1);
+        }
+    }
+ 
+    // Backtrack to the previous move
+    ChessBoard[x][y] = 0;
+}
+ 
+// Driver Code
+int main()
+{
+    vector<vector<int> > ChessBoard(5, vector<int>(5, 0));
+    int N = ChessBoard.size();
+    int X = 1;
+    int Y = 1;
+ 
+    knightTour(ChessBoard, N, X - 1, Y - 1);
+ 
+    // If no valid sequence of moves exist
+    if (!isPossible) {
+        cout << -1;
+    }
+ 
+    return 0;
 }
 
-int knightTour(int x, int y, int move, int sol[N][N], int xMove[N], int yMove[N]) {
-   if (move == N*N) return true;
 
-   for (int k = 0; k < 8; k++) {  //NO OF MOVES knight can move NOT NO of rows or columns 
-      int xNext = x + xMove[k], yNext = y + yMove[k];
-      if (isValid(xNext, yNext, sol)) {
-         sol[xNext][yNext] = move;
-         if (knightTour(xNext, yNext, move+1, sol, xMove, yMove) == true) return true;
-         else sol[xNext][yNext] = -1;
-      }
-   }
-   return false;
-}
+
 
 
 
@@ -35,7 +100,7 @@ int dfs(vector<vector<int>> &grid,int i,int j){
             if(x>=0&&y>=0&&x<grid.size()&&y<grid[x].size()&&grid[x][y]!=0)
                 result=max(result,grid[x][y]+dfs(grid,x,y));  //Set grid[i][j] to 0 to mark as visited before next dfs and reset the values after the dfs ends
         }
-        grid[i][j]=temp; // If you are running multiple dfs i.e, dfs from multiple cells then to make visited or grid in its original form to reused in another one 
+        grid[i][j]=temp;// Should i always use?? ????? this line meaning // If you are running multiple dfs i.e, dfs from multiple cells then to make visited or grid in its original form to reused in another one 
         return result;
 }
     
