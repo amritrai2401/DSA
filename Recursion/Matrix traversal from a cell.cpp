@@ -1,4 +1,4 @@
-//Knight Tour ::
+//Knight Tour ::o(8^(n^2)) 
 
 int DirX[] = { 2, 1, -1, -2, -2, -1, 1, 2 };
 int DirY[] = { 1, 2, 2, 1, -1, -2, -2, -1 };
