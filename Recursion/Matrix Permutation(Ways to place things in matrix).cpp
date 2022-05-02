@@ -28,6 +28,7 @@ void queensPermutations(int qpsf, int tq, int[][] chess){
 
 
 //CROSSWORD PUZZLE : A matrix is provided with + - sign and there is vector of strings which need to filled in matrix. Only - can be filled. eg : car should remain car while filling it cant be filled in arc.
+
 vector<string> checkHorizontal(int x, int y, vector<string> matrix, string currentWord){
     int n = currentWord.length();
     for (int i = 0; i < n; i++) {
