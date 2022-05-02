@@ -41,6 +41,9 @@ vector<string> get_maze_paths(int sr, int sc, int dr, int dc) {
 
 //Knight Tour ::
 
+int xMove[8] = { 2, 1, -1, -2, -2, -1, 1, 2 };
+int yMove[8] = { 1, 2, 2, 1, -1, -2, -2, -1 };
+
 bool isValid(int x, int y, int sol[N][N]) {
    return ( x >= 0 && x < N && y >= 0 && y < N && sol[x][y] == -1);
 }
