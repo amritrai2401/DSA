@@ -1,3 +1,5 @@
+//All Matrix Paths with any number of jumps allowed
+
 vector<string> get_maze_paths(int sr, int sc, int dr, int dc) {
     if(sr == dr && sc == dc){
         vector<string> empty_ans;
@@ -37,6 +39,7 @@ vector<string> get_maze_paths(int sr, int sc, int dr, int dc) {
 
 
 
+//Knight Tour ::
 
 bool isValid(int x, int y, int sol[N][N]) {
    return ( x >= 0 && x < N && y >= 0 && y < N && sol[x][y] == -1);
@@ -60,10 +63,8 @@ int knightTour(int x, int y, int move, int sol[N][N], int xMove[N], int yMove[N]
 
 
 
-[[0,6,0],
- [5,8,7],
- [0,9,0]]
- ans=9 -> 8 -> 7.
+// Maximum Gold 
+
 static vector<int> directions={0,1,0,-1,0};
 
 int dfs(vector<vector<int>> &grid,int i,int j){
