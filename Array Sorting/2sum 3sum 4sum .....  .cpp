@@ -1,3 +1,4 @@
+// Gives all subset of size 3(if 3sum),4(if 4sum) with sum given in que
 vector<vector<int>> fourSum(vector<int>& nums, int target) {
         vector<vector<int>> result;
         sort(nums.begin(),nums.end());
