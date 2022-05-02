@@ -1,6 +1,7 @@
 TC: o(n!)
     // all question are bounded
-//Permutation never asked  Print all NQueen CombinationPrint all NQueen CombinationPrint all NQueen Combination
+// Que : Print all combinations(not 1 combination) to place n queen in n*n board. eg: 4*4
+// Ans : in form of [2,3,1,4],  [ 1,2,4,3]  (it means there are 2 combinations in 2,3,1,4 denotes that we can put 1st queen in 2 column in 1st row and 2nd q in 3 col of 2nd row and so on
 bool isQueenSafe(int row,int col,vector<vector<int>> chess){
     for(int i=row-1,j=col;i>=0;i--)if(chess[i][j]==1) return false;
     for(int i=row-1,j=col-1;i>=0 && j>=0;i--,j--) if(chess[i][j]==1) return false;
@@ -10,7 +11,7 @@ bool isQueenSafe(int row,int col,vector<vector<int>> chess){
 
 void printNQueens(vector<vector<int>> chess,string qsf,int row){
     if(row==chess.size()){
-        cout << qsf << ". "<<endl;
+        cout << qsf << ". "<<endl;    
         return;
     }
     for(int col=0;col<chess.size();col++){           
@@ -33,6 +34,7 @@ Or
 //             }
 //             j=0;
 //         }
+
 
 //For printing all combination of nKnight so that they cant attack each-other
       void isKnightSafe(int i, int j, char a,char** board){
