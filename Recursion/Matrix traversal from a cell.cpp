@@ -28,10 +28,10 @@ int knightTour(int x, int y, int move, int sol[N][N], int xMove[N], int yMove[N]
 static vector<int> directions={0,1,0,-1,0};
 
 int dfs(vector<vector<int>> &grid,int i,int j){
-        int x,y,temp=grid[i][j],result=0;
+        int temp=grid[i][j],result=0;
         grid[i][j]=0;
         for(int d=0;d<4;d++){                   //Try all 4 possible directions
-            x=i+directions[d],y=j+directions[d+1];
+            int x=i+directions[d],y=j+directions[d+1];
             if(x>=0&&y>=0&&x<grid.size()&&y<grid[x].size()&&grid[x][y]!=0)
                 result=max(result,grid[x][y]+dfs(grid,x,y));  //Set grid[i][j] to 0 to mark as visited before next dfs and reset the values after the dfs ends
         }
