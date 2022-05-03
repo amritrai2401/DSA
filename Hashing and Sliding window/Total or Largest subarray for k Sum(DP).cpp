@@ -5,29 +5,37 @@ int maxLen(vector<int>&arr, int k)//k=sum{
     int sum = 0, maxLen = 0;
     for (int i = 0; i < n; i++) {
         sum += arr[i];
-        if (sum == k) maxLen = i + 1;              //For total subarrays with sum k : if(..)tot++;   //For Index of largest subarray : if(..) 0 to i;
+        if (sum == k) maxLen = i + 1;              //For Index of largest subarray : if(..) 0 to i;
         if (m.find(sum) == m.end())
             m[sum] = i;
         if (m.find(sum - k) != m.end()) {
-                                                   //For total subarrays with sum k :total+=um[sum-k]; 
+                                                  
             if (maxLen < (i - m[sum - k]))
                 maxLen = i - m[sum - k];           //For Index of largest subarray : if(..) m[sum-k] to i;
         }
     }
-    return maxLen;                                 //For total subarrays with sum k : return tot;
+    return maxLen;                            
 }
 
 
 Total:
     int subarraySum(vector<int>& nums, int k) {
-        int cum=0; // cumulated sum
+        int sum=0;
         map<int,int> m;
         int cnt = 0; 
         rec[0]++; 
         for(int i=0;i<nums.size();i++){
-            cum += nums[i];
-            cnt += m[cum-k];  // presence of sum-k represent that k sum subarray is present ending at this element such that   (subarray from 0 index to somewhere in middle)sum-k  + (subarray from somewhere in middle to current index)k = sum  
-            m[cum]++;
+            sum += nums[i];
+            cnt += m[sum-k];  // presence of sum-k represent that k sum subarray is present ending at this element such that   (subarray from 0 index to somewhere in middle)sum-k  + (subarray from somewhere in middle to current index)k = sum  
+            m[sum]++;
         }
         return cnt;
+    }
+
+    //Total subarray divisible by k 
+    for(int i = 0; i < A.size(); i++) {
+            sum = (sum + A[i]) % K; 
+            if(sum<0) sum+=K; 
+            cnt += m[sum]; 
+            m[sum]++;
     }
