@@ -4,9 +4,16 @@
 
 void Merge2SortedArray(int array[],int begin,int n1,int n2,int left[],int right[],int &inversion){
     int i = 0,j = 0, k=begin; 
+    
+//     For find pairs/inversion such that arr[i]>2*arr[j] with i<j
+//     while(i<n1 && j<n2){    
+//         if(left[i]/2,=right[j]) i++;
+//         else { inversion+=n1-i; j++;}
+//     }
+    
     while (i < n1 && j < n2) {
         if (left[i] <= right[j]) array[k++] = left[i++];
-        else {array[k++] = right[j++]; inversion+=n1-i;}  //Inversion
+        else {array[k++] = right[j++]; inversion+=n1-i;}  //Normal Inversion : arr[i]>arr[j] with i<j
     }
     while (i < n1)array[k++] = left[i++];
     while (j < n2)array[k++] = right[j++];
