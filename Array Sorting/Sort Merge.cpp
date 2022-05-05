@@ -1,10 +1,12 @@
 //Part of divide and conquer
+//You can also find inversion with merge sort. Inversion means :a[i]>a[j] & i<j
 //t.c=0(n*logn)              s.c=o(n) because of left[n/2] + right[n/2].
+
 void Merge2SortedArray(int array[],int begin,int n1,int n2,int left[],int right[],int &inversion){
     int i = 0,j = 0, k=begin; 
     while (i < n1 && j < n2) {
         if (left[i] <= right[j]) array[k++] = left[i++];
-        else {array[k++] = right[j++]; inversion+=n1-i;}  //Inversion:a[i]>a[j] & i<j
+        else {array[k++] = right[j++]; inversion+=n1-i;}  //Inversion
     }
     while (i < n1)array[k++] = left[i++];
     while (j < n2)array[k++] = right[j++];
