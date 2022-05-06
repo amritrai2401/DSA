@@ -1,2 +1,33 @@
 Last submission on leetcode but it is combinational code but it is permutation
 I think we need to apply normal recursion other than combination and permutation in some questions
+class Solution {
+public:
+        
+    void generateCombination(int limit, int n, int k, int start, string& str, vector<string>&combinations,int track){           
+        if(k==0){
+            track = track - (limit-start);
+            if(track==0) 
+                combinations.push_back(str);
+            return;
+        }
+        
+        if(n==0) return;
+        
+        for(int i=start; i<limit;i++){
+            str[i] = '(';
+            generateCombination(limit,n-1,k-1,i+1,str,combinations,++track);
+            str[i] = ')';
+            track-=2;
+            if(track<0)break;
+        }
+    }
+    
+    vector<string> generateParenthesis(int n) {
+        vector<string> combinations;
+        int m = 2*n;
+        string dummy(m,')');
+        int track = 0;  
+        generateCombination(m,m,n,0,dummy,combinations,track); 
+        return combinations;
+    }
+};
