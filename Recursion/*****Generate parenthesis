@@ -1,3 +1,6 @@
+BUGH gaya : permutation of same thing is combination
+
+
 Last submission on leetcode but it is combinational code but it is permutation
 I think we need to apply normal recursion other than combination and permutation in some questions
 class Solution {
