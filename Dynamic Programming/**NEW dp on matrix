@@ -1,1 +1,4 @@
 https://leetcode.com/problems/maximal-square/submissions/
+  // dfs for two directions : right and left
+        // Since it is non cyclical directions i,e cant go back once forwarded so we can apply dp
+        
